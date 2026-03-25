@@ -1,0 +1,116 @@
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { motion } from "framer-motion";
+
+export default function BeautyParlourWebsite() {
+  return (
+    <div className="min-h-screen bg-pink-50 text-gray-800">
+      {/* Hero Section */}
+      <section className="text-center py-20 bg-gradient-to-r from-pink-200 to-pink-400">
+        <motion.h1
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-5xl font-bold mb-4"
+        >
+          Glamour Touch Beauty Parlour (Owned by Vivian & Dieudonne)
+        </motion.h1>
+        <p className="text-lg mb-6">
+          Premium Wigs, Flawless Makeup & Stunning Lash Looks
+        </p>
+        <div className="flex justify-center gap-4">
+          <Button className="rounded-2xl">Book Appointment</Button>
+          <Button className="rounded-2xl bg-green-500"><a href="https://wa.me/254748296698" target="_blank">WhatsApp Us</a></Button>
+        </div>
+      </section>
+
+      {/* Services */}
+      <section className="py-16 px-6">
+        <h2 className="text-3xl font-semibold text-center mb-10">Our Services</h2>
+        <div className="grid md:grid-cols-4 gap-6">
+          {[
+            "Wig Installation & Styling",
+            "Custom Wig Sales",
+            "Professional Makeup",
+            "Eyelash Extensions"
+          ].map((service, index) => (
+            <Card key={index} className="rounded-2xl shadow-lg">
+              <CardContent className="p-6 text-center">
+                <h3 className="font-semibold text-lg">{service}</h3>
+                <Button className="mt-4 rounded-xl">Book Now</Button>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      {/* Booking Section */}
+      <section className="py-16 px-6 bg-white">
+        <h2 className="text-3xl font-semibold text-center mb-10">Book an Appointment</h2>
+        <div className="max-w-xl mx-auto space-y-4">
+          <Input placeholder="Full Name" />
+          <Input placeholder="Phone Number" />
+          <Input placeholder="Service Needed" />
+          <Input placeholder="Preferred Date" type="date" />
+          <Button className="w-full rounded-2xl">Confirm Booking</Button>
+        </div>
+      </section>
+
+      {/* Products */}
+      <section className="py-16 px-6">
+        <h2 className="text-3xl font-semibold text-center mb-10">Shop Beauty Products</h2>
+        <div className="grid md:grid-cols-3 gap-6">
+          {[
+            { name: "Luxury Wig", price: "KSh 8,000" },
+            { name: "Makeup Kit", price: "KSh 3,500" },
+            { name: "Lash Set", price: "KSh 1,500" }
+          ].map((product, index) => (
+            <Card key={index} className="rounded-2xl shadow-md">
+              <CardContent className="p-6 text-center">
+                <h3 className="font-medium">{product.name}</h3>
+                <p className="mt-2">{product.price}</p>
+                <Button className="mt-4 rounded-xl">Buy Now</Button>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-16 px-6 bg-pink-100">
+        <h2 className="text-3xl font-semibold text-center mb-10">What Our Clients Say</h2>
+        <div className="grid md:grid-cols-3 gap-6">
+          {["Amazing service!", "Best wigs in Nairobi!", "Loved my makeup!"].map((review, i) => (
+            <Card key={i} className="rounded-2xl">
+              <CardContent className="p-6 text-center">
+                <p>"{review}"</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      {/* Instagram Section */}
+      <section className="py-16 px-6">
+        <h2 className="text-3xl font-semibold text-center mb-6">Follow Us on Instagram</h2>
+        <p className="text-center">@glamourtouchbeauty</p>
+      </section>
+
+      {/* Contact */}
+      <section className="py-16 px-6 bg-pink-200">
+        <h2 className="text-3xl font-semibold text-center mb-6">Contact Us</h2>
+        <div className="text-center">
+          <p>📍 Nairobi, Kenya (Exact location available on request)</p>
+          <p>📞 0748296698</p>
+          <p>📧 vivianmwendia@gmail.com</p>
+          <Button className="mt-4 rounded-2xl bg-green-500"><a href="https://wa.me/254748296698" target="_blank">Chat on WhatsApp</a></Button>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="text-center py-6 bg-pink-300">
+        <p>© 2026 Glamour Touch Beauty Parlour (Owned by Vivian & Dieudonne). All rights reserved.</p>
+      </footer>
+    </div>
+  );
+}
